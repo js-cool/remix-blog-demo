@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
 
 @layer base {
   html {
@@ -32,16 +33,18 @@
 @layer base {
   body {
     @apply bg-white text-black dark:bg-black dark:text-white;
+    transition: background-color 1s linear, color 0.5s linear;
   }
   #background {
-    @apply fixed inset-0 z-[-1];
+    @apply fixed inset-0 z-[-1] saturate-150;
     background: url('/images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
-    transition: transform 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
     transform-style: preserve-3d;
   }
 }
 
 .dark #background {
+  @apply brightness-50;
   transform: scaleX(-1);
 }
