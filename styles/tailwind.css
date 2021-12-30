@@ -33,4 +33,15 @@
   body {
     @apply bg-white text-black dark:bg-black dark:text-white;
   }
+  #background {
+    @apply fixed inset-0 z-[-1];
+    background: url('/images/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: transform 0.25s ease-in-out;
+    transform-style: preserve-3d;
+  }
+}
+
+.dark #background {
+  transform: scaleX(-1);
 }

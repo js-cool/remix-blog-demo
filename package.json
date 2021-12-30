@@ -7,9 +7,12 @@
     "build": "cross-env NODE_ENV=production remix build",
     "build:css": "postcss styles/**/*.css --base styles --dir app/styles",
     "build:css:prod": "npm run build:css -- --env production",
-    "dev": "cross-env NODE_ENV=development run-p dev:*",
-    "postinstall": "remix setup cloudflare-pages",
+    "dev": "cross-env NODE_ENV=development run-p dev:css dev:local",
+    "dev:cf": "cross-env NODE_ENV=development run-p dev:css dev:remix dev:wrangler",
+    "steup": "remix setup",
+    "steup:cf": "remix setup cloudflare-pages",
     "dev:css": "npm run build:css -- --w",
+    "dev:local": "remix dev",
     "dev:remix": "remix watch",
     "dev:wrangler": "wrangler pages dev ./public --watch ./build ./styles",
     "start": "npm run dev:wrangler"
@@ -27,6 +30,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^3.2.0",
     "@remix-run/dev": "^1.1.1",
+    "@remix-run/serve": "^1.1.1",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "@willin/eslint-config": "^0.0.6",

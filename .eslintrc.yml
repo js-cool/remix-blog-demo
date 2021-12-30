@@ -11,4 +11,5 @@ settings:
   import/resolver:
     typescript: {}
 rules:
+  import/named: 0
   '@typescript-eslint/explicit-function-return-type': 0

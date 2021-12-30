@@ -1,25 +1,14 @@
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  json,
-  useLoaderData,
-  useCatch,
-  ScrollRestoration,
-  LoaderFunction,
-  LinksFunction,
-  MetaFunction
-} from 'remix';
-import type { MetaFunction } from 'remix';
-import { ThemeProvider, useTheme, PreventFlashOnWrongTheme, Theme } from 'remix-themes';
+import { Links, LiveReload, Meta, Outlet, Scripts, json, useLoaderData, useCatch, ScrollRestoration } from 'remix';
+import type { LoaderFunction, LinksFunction, MetaFunction, MetaFunction } from 'remix';
+import { ThemeProvider, useTheme, PreventFlashOnWrongTheme, type Theme } from 'remix-themes';
 import { themeSessionResolver } from './services/theme.server';
-import { isDevelopment } from './utils/enviroment';
 
 import styles from './styles/tailwind.css';
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
+export const links: LinksFunction = () => [
+  { rel: 'icon', href: '/favicon.ico' },
+  { rel: 'stylesheet', href: styles }
+];
 
 export const meta: MetaFunction = () => ({ title: 'New Remix App' });
 
@@ -61,6 +50,7 @@ function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
+        <div id='background'></div>
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>

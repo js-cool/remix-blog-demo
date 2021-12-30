@@ -1,22 +1,19 @@
-# Welcome to Remix!
+# Remix Blog Demo
 
-- [Remix Docs](https://remix.run/docs)
+## Run Dev
 
-## Development
+### Local
 
-You will be utlizing Wrangler for local development to emulate the Cloudflare runtime. This is already wired up in your package.json as the `dev` script:
-
-```sh
-# start the remix dev server and wrangler
-$ npm run dev
+```bash
+npm run setup
+npm run dev
 ```
 
-Open up [http://127.0.0.1:8788](http://127.0.0.1:8788) and you should be ready to go!
+Setup script only run when you first run the app or change another backend type.
 
-## Deployment
+### Cloudflare Pages
 
-Cloudflare Pages are currently only deployable through their Git provider integrations.
-
-If you don't already have an account, then [create a Cloudflare account here](https://dash.cloudflare.com/sign-up/pages) and after verifying your email address with Cloudflare, go to your dashboard and follow the [Cloudflare Pages deployment guide](https://developers.cloudflare.com/pages/framework-guides/deploy-anything).
-
-Configure the "Build command" should be set to `npm run build`, and the "Build output directory" should be set to `public`.
+```bash
+npm run setup:cf
+npm run dev:cf
+```
