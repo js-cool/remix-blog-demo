@@ -36,7 +36,7 @@
     transition: background-color 1s linear, color 0.5s linear;
   }
   #background {
-    @apply fixed inset-0 z-[-1] saturate-150;
+    @apply fixed inset-0 saturate-150;
     background: url('/images/bg.jpg') no-repeat center center fixed;
     background-size: cover;
     transition: all 0.25s ease-in-out;
