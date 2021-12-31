@@ -1,9 +1,11 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, json, useLoaderData, useCatch, ScrollRestoration } from 'remix';
 import type { LoaderFunction, LinksFunction, MetaFunction, MetaFunction } from 'remix';
 import { ThemeProvider, useTheme, PreventFlashOnWrongTheme, type Theme } from 'remix-themes';
+import cls from 'classnames';
 import { themeSessionResolver } from './services/theme.server';
 
 import ThemeToggle from '~/components/navbar/theme-toggle';
+import LocaleToggle from './components/navbar/locale-toggle';
 
 import styles from './styles/tailwind.css';
 
@@ -37,10 +39,10 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 function App() {
   const data = useLoaderData<LoaderData>();
-  const [theme] = useTheme();
+  const [theme = 'dark'] = useTheme();
 
   return (
-    <html lang='en' className={theme ?? ''} data-theme={theme === 'light' ? 'bumblebee' : 'cyberpunk'}>
+    <html lang='en' className={cls(theme)} data-theme={theme === 'light' ? 'bumblebee' : 'cyberpunk'}>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width,initial-scale=1' />
@@ -49,24 +51,27 @@ function App() {
         <Links />
       </head>
       <body>
-        <div id='background'></div>
-        <div id='app' class='pt-8 px-8 w-full max-w-2xl mx-auto backdrop-blur-sm rounded-lg'>
-          <nav class='flex justify-between items-center w-full max-w-2xl mx-auto'>
+        <div id='background' className='dark:dark-bg'></div>
+        <div id='app' className='pt-8 px-8 w-full max-w-5xl mx-auto backdrop-blur-sm rounded-lg'>
+          <nav className='flex justify-between items-center w-full mx-auto'>
             <div>
               <a href='#'>#####</a>
               <a href='#'>#####</a>
               <a href='#'>#####</a>
               <a href='#'>#####</a>
             </div>
-            <ThemeToggle />
+            <div>
+              <ThemeToggle />
+              <LocaleToggle />
+            </div>
           </nav>
 
-          <main id='skip' class='py-8'>
-            <div class='badge'>neutral</div>
-            <div class='badge badge-primary'>primary</div>
-            <div class='badge badge-secondary'>secondary</div>
-            <div class='badge badge-accent'>accent</div>
-            <div class='badge badge-ghost'>ghost</div>
+          <main id='skip' className='py-8'>
+            <div className='badge'>neutral</div>
+            <div className='badge badge-primary'>primary</div>
+            <div className='badge badge-secondary'>secondary</div>
+            <div className='badge badge-accent'>accent</div>
+            <div className='badge badge-ghost'>ghost</div>
 
             <Outlet />
           </main>
