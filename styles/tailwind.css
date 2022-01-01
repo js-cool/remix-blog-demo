@@ -47,6 +47,7 @@
 @layer utilities {
   .dark-bg {
     @apply brightness-50 saturate-100;
-    transform: rotate(-3deg) scale(1.2) scaleX(-1);
+    transform: rotate(-3deg) scale(1.2);
+    /* scaleX(-1); */
   }
 }

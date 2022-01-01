@@ -13,5 +13,8 @@ module.exports = {
     }
   },
   content: [fromRoot('./app/**/*.+(js|ts|tsx|mdx|md)')],
-  plugins: [require('@tailwindcss/typography'), require('daisyui')]
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
+  daisyui: {
+    themes: ['cyberpunk', 'retro']
+  }
 };

@@ -1,5 +1,7 @@
 # Remix Blog Demo
 
+Delayed. 'coz it cannot run properly on Cloudflare pages / workers. I'll use Next.js for a temp solution.
+
 ## Run Dev
 
 ### Local

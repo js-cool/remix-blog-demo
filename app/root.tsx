@@ -6,6 +6,7 @@ import { themeSessionResolver } from './services/theme.server';
 
 import ThemeToggle from '~/components/navbar/theme-toggle';
 import LocaleToggle from './components/navbar/locale-toggle';
+import Logo from './components/navbar/logo';
 
 import styles from './styles/tailwind.css';
 
@@ -42,7 +43,7 @@ function App() {
   const [theme = 'dark'] = useTheme();
 
   return (
-    <html lang='en' className={cls(theme)} data-theme={theme === 'light' ? 'bumblebee' : 'cyberpunk'}>
+    <html lang='en' className={cls(theme)} data-theme={theme === 'light' ? 'retro' : 'cyberpunk'}>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width,initial-scale=1' />
@@ -55,6 +56,7 @@ function App() {
         <div id='app' className='pt-8 px-8 w-full max-w-5xl mx-auto backdrop-blur-sm rounded-lg'>
           <nav className='flex justify-between items-center w-full mx-auto'>
             <div>
+              <Logo />
               <a href='#'>#####</a>
               <a href='#'>#####</a>
               <a href='#'>#####</a>
